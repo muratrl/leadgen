@@ -1,0 +1,25 @@
+<div>
+  <table>
+  <tr>
+    <th>Prospect Name</th>
+    <th>Rental Address</th>
+    <th>Mailing Address</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @prospects.each do |prospect| %>
+  <tr>
+    <td><%= prospect.owner_1_label_name%></td>
+    <td><%= prospect.property_address %> <%=  prospect.property_city %> <%= prospect.property_zip_code %></td>
+    <td><%= prospect.mail_address %> <%=  prospect.mail_city %> <%= prospect.mail_zip_code %></td>
+    <td><%= link_to "Show", prospect %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+</div>
+<div>
+  <%= will_paginate @prospects %>
+</div>

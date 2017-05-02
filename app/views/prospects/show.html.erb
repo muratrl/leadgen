@@ -1,0 +1,37 @@
+<%= link_to 'Back', :back %>
+<div >
+  <h3>Prospect Info</h3>
+  <div>
+        <div><span style="font-weight:bold"> Owner 1 Name:   </span><%= @prospect.owner_1_label_name%></div>
+        <div><span style="font-weight:bold"> Owner 2 Name:   </span><%= @prospect.owner_2_label_name%></div>
+        <div><span style="font-weight:bold">  Property Address:  </span><%= @prospect.property_address %> <%=  @prospect.property_city %> <%= @prospect.property_zip_code %></div>
+        <div><span style="font-weight:bold">  Mailing Address:  </span><%= @prospect.mail_address %> <%=  @prospect.mail_city %> <%= @prospect.mail_zip_code %></div>
+        <div><span style="font-weight:bold"> Last Market Sale Price:   </span><%= number_to_currency(@prospect.last_market_sale_price)%></div>
+  </div>
+  <% if @rental %>
+  <h3>Rental Info</h3>
+  <div>
+        <div><span style="font-weight:bold">  Rental Address:   </span><%= @rental.rental_street%></div>
+        <div><span style="font-weight:bold">  Property Type:  </span><%= @rental.property_type %></div>
+        <div><span style="font-weight:bold">  Tax Assessment Year:  </span><%= @rental.tax_assessment_year %></div>
+        <div><span style="font-weight:bold">  Tax Assessment:  </span><%= number_to_currency(@rental.tax_assessment) %></div>
+        <div><span style="font-weight:bold">  Year Built:  </span><%= @rental.tax_assessment %></div>
+        <div><span style="font-weight:bold">  Lot Size:  </span><%= @rental.lot_size %></div>
+        <div><span style="font-weight:bold">  Finished Lot Size:  </span><%= @rental.finished_lot_size %></div>
+        <div><span style="font-weight:bold">  Bathrooms:  </span><%= @rental.bathrooms %></div>
+        <div><span style="font-weight:bold">  Bedrooms:  </span><%= @rental.bathrooms %></div>
+        <div><span style="font-weight:bold">  Last Sold Date: </span><%= @rental.last_sold_date %></div>
+
+        <div><span style="font-weight:bold">  Last Sold Price: </span><%= number_to_currency(@rental.last_sold_price) %></div>
+        <div><span style="font-weight:bold">  Zestimate: </span><%= number_to_currency(@rental.zestimate) %></div>
+        <div><span style="font-weight:bold">  Zestimate Low: </span><%= number_to_currency(@rental.zestimate_low) %></div>
+        <div><span style="font-weight:bold">  Zestimate High: </span><%= number_to_currency(@rental.zestimate_hight) %></div>
+  </div>
+  <% end %>
+  <% if @linkedin %>
+  <h3>Linkedin Info</h3>
+        <div><span style="font-weight:bold">  Company Name : </span><%= @linkedin.company_name %></div>
+        <div><span style="font-weight:bold">  Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %></a></div>
+        <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
+  <% end %>
+</div>
