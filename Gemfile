@@ -47,3 +47,7 @@ end
 gem 'devise'
 # Paginatio gem
 gem 'will_paginate', '~> 3.1.0'
+#  needed for Heroku
+gem 'rails_12factor', group: :production
+
+ruby "2.1.5"
