@@ -1,15 +1,23 @@
+<%= form_tag authenticated_root_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <div>
   <table class="pretty">
   <tr>
-    <th><%= sortable  "owner_1_first_name","Owner 1 FName" %></th>
+    <th><%= sortable "owner_1_first_name","Owner 1 FName" %></th>
     <th><%= sortable "owner_1_last_name" ,"Owner 1 LName"%></th>
     <th><%= sortable "owner_2_first_name","Owner 2 FName" %></th>
     <th><%= sortable "owner_2_last_name","Owner 2 LName" %></th>
     <th><%= sortable "property_address","Rental Address" %></th>
     <th><%= sortable "property_city","City" %></th>
     <th><%= sortable "property_state","State" %></th>
-    <th><%= sortable"property_zip_code", "ZipCode" %></th>
-    <th><%= sortable"mail_address", "Mailing Address" %></th>
+    <th><%= sortable "property_zip_code", "ZipCode" %></th>
+    <th><%= sortable "mail_address", "Mailing Address" %></th>
     <th><%= sortable "mail_city" , "City"%></th>
     <th><%= sortable "mail_state", "State" %></th>
     <th><%= sortable "mail_zip_code" ,"ZipCode"%></th>
