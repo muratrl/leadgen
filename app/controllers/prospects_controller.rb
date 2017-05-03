@@ -10,4 +10,10 @@ class ProspectsController < ApplicationController
     updateUser.save!
     redirect_to action: "show", id: params[:id]
   end
+  def updateNotes
+    updateUser=Linkedin.where(prospect_user_id:params[:id])[0]
+    updateUser.notes=updateUser.notes.to_s.concat(params[:notes])
+    updateUser.save!
+    redirect_to action: "show", id: params[:id]
+  end
 end

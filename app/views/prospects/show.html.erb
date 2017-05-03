@@ -34,10 +34,18 @@
         <div><span style="font-weight:bold">  Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %></a></div>
         <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
         <div><span style="font-weight:bold">  Email: </span> <%= @linkedin.email %></div>
+        <div><span style="font-weight:bold">  Notes:  </span> <%= @linkedin.notes %></div>
+        <br>
         <%= form_tag("/prospects/#{@prospect.id}", method: "PUT") do %>
         <%= label_tag(:q, "Update Email:") %>
         <%= text_field_tag(:q) %>
         <%= submit_tag("Update") %>
-      <% end %>
+        <% end %>
+        <br>
+        <%= form_tag("/updateNotes/#{@prospect.id}", method: "PUT") do %>
+        <%= label_tag(:notes, "Update Notes:") %>
+        <%= text_area_tag(:notes, nil, rows: 10, cols: 25) %>
+        <%= submit_tag("Update") %>
+        <% end %>
   <% end %>
 </div>

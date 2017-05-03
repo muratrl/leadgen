@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :prospects
-  
+  put 'updateNotes/:id' => 'prospects#updateNotes'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
