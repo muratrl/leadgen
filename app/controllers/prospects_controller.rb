@@ -3,7 +3,11 @@ class ProspectsController < ApplicationController
     @prospect=Prospect.find(params[:id])
     @rental=Rental.where(prospect_user_id: params[:id])[0]
     @linkedin=Linkedin.where(prospect_user_id: params[:id])[0]
-
-    
+  end
+  def update
+    updateUser=Linkedin.where(prospect_user_id:params[:id])[0]
+    updateUser.email=params[:q]
+    updateUser.save!
+    redirect_to action: "show", id: params[:id]
   end
 end
