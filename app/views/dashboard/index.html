@@ -1,22 +1,40 @@
 <div>
-  <table>
+  <table class="pretty">
   <tr>
-    <th>Prospect Name</th>
-    <th>Rental Address</th>
-    <th>Mailing Address</th>
+    <th><%= sortable  "owner_1_first_name","Owner 1 FName" %></th>
+    <th><%= sortable "owner_1_last_name" ,"Owner 1 LName"%></th>
+    <th><%= sortable "owner_2_first_name","Owner 2 FName" %></th>
+    <th><%= sortable "owner_2_last_name","Owner 2 LName" %></th>
+    <th><%= sortable "property_address","Rental Address" %></th>
+    <th><%= sortable "property_city","City" %></th>
+    <th><%= sortable "property_state","State" %></th>
+    <th><%= sortable"property_zip_code", "ZipCode" %></th>
+    <th><%= sortable"mail_address", "Mailing Address" %></th>
+    <th><%= sortable "mail_city" , "City"%></th>
+    <th><%= sortable "mail_state", "State" %></th>
+    <th><%= sortable "mail_zip_code" ,"ZipCode"%></th>
     <th></th>
     <th></th>
   </tr>
-<% @prospects.each do |prospect| %>
-  <tr>
-    <td><%= prospect.owner_1_label_name%></td>
-    <td><%= prospect.property_address %> <%=  prospect.property_city %> <%= prospect.property_zip_code %></td>
-    <td><%= prospect.mail_address %> <%=  prospect.mail_city %> <%= prospect.mail_zip_code %></td>
-    <td><%= link_to "Show", prospect %></td>
-    <td></td>
-  </tr>
-<% end %>
-</table>
+  <% @prospects.each do |prospect| %>
+    <tr>
+      <td><%= prospect.owner_1_first_name%></td>
+      <td><%= prospect.owner_1_last_name%></td>
+      <td><%= prospect.owner_2_first_name%></td>
+      <td><%= prospect.owner_2_last_name%></td>
+      <td><%= prospect.property_address%> </td>
+      <td><%= prospect.property_city %> </td>
+      <td><%= prospect.property_state %> </td>
+      <td><%= prospect.property_zip_code %></td>
+      <td><%= prospect.mail_address%> </td>
+      <td><%= prospect.mail_city %> </td>
+      <td><%= prospect.mail_state %> </td>
+      <td><%= prospect.mail_zip_code %></td>
+      <td><%= link_to "Show", prospect %></td>
+      <td></td>
+    </tr>
+  <% end %>
+  </table>
 
 <br>
 </div>
