@@ -6,12 +6,12 @@ class Prospect < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('owner_1_first_name LIKE ? or owner_1_last_name LIKE ? or
-      owner_2_first_name LIKE ? or owner_2_last_name LIKE ? or
-      property_address LIKE ? or property_city LIKE ? or
-      property_state LIKE ? or property_zip_code LIKE ? or
-      mail_address LIKE ? or mail_city LIKE ? or
-      mail_state LIKE ? or mail_zip_code LIKE ?',
+      where('LOWER(owner_1_first_name) LIKE LOWER(?) or LOWER(owner_1_last_name) LIKE ? or
+      LOWER(owner_2_first_name) LIKE LOWER(?) or LOWER(owner_2_last_name) LIKE LOWER(?) or
+      LOWER(property_address) LIKE LOWER(?) or LOWER(property_city) LIKE LOWER(?) or
+      LOWER(property_state) LIKE LOWER(?) or LOWER(property_zip_code) LIKE LOWER(?) or
+      LOWER(mail_address) LIKE LOWER(?) or LOWER(mail_city) LIKE LOWER(?) or
+      LOWER(mail_state) LIKE LOWER(?) or LOWER(mail_zip_code) LIKE LOWER(?)',
       "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%",
       "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%",
       "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
