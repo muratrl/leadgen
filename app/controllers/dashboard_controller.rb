@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_action :authenticate_user!
   def index
     @prospects=Prospect.
     joins("RIGHT OUTER JOIN prospect_linkedin on prospect_linkedin.prospect_user_id=prospect_user.id ").

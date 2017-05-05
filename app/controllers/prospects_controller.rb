@@ -1,4 +1,5 @@
 class ProspectsController < ApplicationController
+  before_action :authenticate_user!
   def show
     @prospect=Prospect.find(params[:id])
     @rental=Rental.where(prospect_user_id: params[:id])[0]
