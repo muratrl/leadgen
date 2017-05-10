@@ -33,6 +33,9 @@
         <div><span style="font-weight:bold">  Company Name : </span><%= @linkedin.company_name %></div>
         <div><span style="font-weight:bold">  Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %></a></div>
         <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
+        <% if @campaign %>
+        <div><span style="font-weight:bold">  Campaign: </span> <%= @campaign.campaign %></div>
+        <% end %>
         <div><span style="font-weight:bold">  Email: </span> <%= @linkedin.email %></div>
         <div><span style="font-weight:bold">  Notes:  </span> <%= @linkedin.notes %></div>
         <br>

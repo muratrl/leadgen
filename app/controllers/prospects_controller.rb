@@ -4,6 +4,7 @@ class ProspectsController < ApplicationController
     @prospect=Prospect.find(params[:id])
     @rental=Rental.where(prospect_user_id: params[:id])[0]
     @linkedin=Linkedin.where(prospect_user_id: params[:id])[0]
+    @campaign=Campaign.where(prospect_id: params[:id])[0]
   end
   def update
     updateUser=Linkedin.where(prospect_user_id:params[:id])[0]
