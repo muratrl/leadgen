@@ -21,8 +21,9 @@
     <th><%= sortable "mail_city" , "City"%></th>
     <th><%= sortable "mail_state", "State" %></th>
     <th><%= sortable "mail_zip_code" ,"ZipCode"%></th>
-    <th></th>
-    <th></th>
+    <th>Show</th>
+    <th><%= sortable "zestimate" ,"Zestimate"%></th>
+    <th><%= sortable "email" ,"Email"%></th>
   </tr>
   <% @prospects.each do |prospect| %>
     <tr>
@@ -39,7 +40,12 @@
       <td><%= prospect.mail_state %> </td>
       <td><%= prospect.mail_zip_code %></td>
       <td><%= link_to "Show", prospect %></td>
-      <td></td>
+      <% if prospect.zestimate %>
+      <td><%= number_to_currency(prospect.zestimate) %></td>
+      <% end %>
+      <% if prospect.email %>
+      <td><%= prospect.email %></td>
+      <% end %>
     </tr>
   <% end %>
   </table>
