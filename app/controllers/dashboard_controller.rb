@@ -2,8 +2,7 @@ class DashboardController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :authenticate_user!
   def index
-    @prospects=Prospect.joins("RIGHT   JOIN prospect_linkedin on prospect_linkedin.prospect_user_id=prospect_user.id  RIGHT JOIN prospect_rental on prospect_rental.prospect_user_id=prospect_user.id ").
-    select("prospect_user.*,prospect_linkedin.*,prospect_rental.*").
+    @prospects=Prospect.joins("RIGHT OUTER JOIN prospect_linkedin on prospect_linkedin.prospect_user_id=prospect_user.id ").
     search(params[:search]).order(sort_column + ' ' + sort_direction).
     paginate(:page => params[:page], :per_page => 150)
   end
