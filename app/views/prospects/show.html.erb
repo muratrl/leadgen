@@ -32,17 +32,18 @@
   <h3>Linkedin Info</h3>
         <div><span style="font-weight:bold">  Company Name : </span><%= @linkedin.company_name %></div>
         <div><span style="font-weight:bold">  Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %></a></div>
+        <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
         <% if @linkedin.second_owner_as_url_param %>
         <div><span style="font-weight:bold">  Second Owner Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.second_owner_as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.second_owner_as_url_param %></a></div>
         <% end %>
         <% if @linkedin.second_owner_public_linkedin_url %>
-        <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.second_owner_public_linkedin_url.chop %>"> <%= @linkedin.second_owner_public_linkedin_url.chop %></a></div>
+        <div><span style="font-weight:bold">  Second Owner Public Url: </span> <a target="_blank" href="<%= @linkedin.second_owner_public_linkedin_url.chop %>"> <%= @linkedin.second_owner_public_linkedin_url.chop %></a></div>
         <% end %>
-        <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
         <% if @campaign %>
         <div><span style="font-weight:bold">  Campaign: </span> <%= @campaign.campaign %></div>
         <% end %>
         <div><span style="font-weight:bold">  Email: </span> <%= @linkedin.email %></div>
+        <div><span style="font-weight:bold">  Second Owner Email: </span> <%= @linkedin.second_owner_email %></div>
         <div><span style="font-weight:bold">  Notes:  </span> <%= @linkedin.notes %></div>
         <br>
         <%= form_tag("/prospects/#{@prospect.id}", method: "PUT") do %>
