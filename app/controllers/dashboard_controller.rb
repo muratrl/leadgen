@@ -15,5 +15,3 @@ class DashboardController < ApplicationController
      params[:direction] || "asc"
    end
 end
-
-Linkedin.joins("LEFT JOIN prospect_user pu  on prospect_user.id=prospect_user.prospect_user_id")
