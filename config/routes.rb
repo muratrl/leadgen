@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :prospects
   put 'updateNotes/:id' => 'prospects#updateNotes'
+  put 'prospects/:id/updateSecondOwnerEmail' => 'prospects#updateSecondOwnerEmail'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

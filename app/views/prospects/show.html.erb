@@ -52,6 +52,13 @@
         <%= submit_tag("Update") %>
         <% end %>
         <br>
+        <br>
+        <%= form_tag("/prospects/#{@prospect.id}/updateSecondOwnerEmail", method: "PUT") do %>
+        <%= label_tag(:q, "Update Second Owner Email:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Update") %>
+        <% end %>
+        <br>
         <%= form_tag("/updateNotes/#{@prospect.id}", method: "PUT") do %>
         <%= label_tag(:notes, "Update Notes:") %>
         <%= text_area_tag(:notes, nil, rows: 10, cols: 25) %>
