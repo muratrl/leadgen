@@ -30,9 +30,15 @@
   <% end %>
   <% if @linkedin %>
   <h3>Linkedin Info</h3>
+        <% if @linkedin.company_name %>
         <div><span style="font-weight:bold">  Company Name : </span><%= @linkedin.company_name %></div>
+        <% end %>
+        <% if @linkedin.as_url_param %>
         <div><span style="font-weight:bold">  Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.as_url_param %></a></div>
+        <% end %>
+        <% if @linkedin.public_linkedin_url %>
         <div><span style="font-weight:bold">  Public Url: </span> <a target="_blank" href="<%= @linkedin.public_linkedin_url.chop %>"> <%= @linkedin.public_linkedin_url.chop %></a></div>
+        <% end %>
         <% if @linkedin.second_owner_as_url_param %>
         <div><span style="font-weight:bold">  Second Owner Internal Url : </span><a target="_blank" href="https://www.linkedin.com/recruiter/profile/<%= @linkedin.second_owner_as_url_param %>"> https://www.linkedin.com/recruiter/profile/<%= @linkedin.second_owner_as_url_param %></a></div>
         <% end %>
